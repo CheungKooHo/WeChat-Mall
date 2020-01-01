@@ -48,21 +48,28 @@ Page({
 
   // 加入购物车
   addCart() {
-    let cart = wx.getStorageSync('cart') || [];
-    let index = cart.findIndex(v => v.goods_id === this.data.GoodsInfo.goods_id)
-    if (index === -1) {
-      this.data.GoodsInfo.num = 1;
-      this.data.GoodsInfo.checked = true;
-      cart.push(this.data.GoodsInfo);
+    const userinfo = wx.getStorageSync('userinfo');
+    if (!userinfo.nickName) {
+      wx.navigateTo({
+        url: '/pages/login/index',
+      });
     } else {
-      cart[index].num++;
+      let cart = wx.getStorageSync('cart') || [];
+      let index = cart.findIndex(v => v.goods_id === this.data.GoodsInfo.goods_id)
+      if (index === -1) {
+        this.data.GoodsInfo.num = 1;
+        this.data.GoodsInfo.checked = true;
+        cart.push(this.data.GoodsInfo);
+      } else {
+        cart[index].num++;
+      }
+      wx.setStorageSync('cart', cart);
+      wx.showToast({
+        title: '已添加至购物车',
+        icon: 'success',
+        mask: true
+      });
     }
-    wx.setStorageSync('cart', cart);
-    wx.showToast({
-      title: '已添加至购物车',
-      icon: 'success',
-      mask: true
-    });
 
   }
 })

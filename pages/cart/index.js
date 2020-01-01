@@ -23,34 +23,41 @@ Page({
   },
   // 获取用户收货地址
   handleChooseAddress() {
-    wx.getSetting({
-      success: (result) => {
-        const scopeAddress = result.authSetting['scope.address'];
-        if (scopeAddress === true || scopeAddress === undefined) {
-          wx.chooseAddress({
-            success: (result1) => {
-              this.setData({
-                address: result1
-              })
-              wx.setStorageSync('address', this.data.address)
-            }
-          })
-        } else {
-          wx.openSetting({
-            success: (result2) => {
-              wx.chooseAddress({
-                success: (result3) => {
-                  this.setData({
-                    address: result3
-                  })
-                  wx.setStorageSync('address', this.data.address)
-                }
-              })
-            }
-          })
+    const userinfo = wx.getStorageSync('userinfo');
+    if (!userinfo.nickName) {
+      wx.navigateTo({
+        url: '/pages/login/index',
+      });
+    } else {
+      wx.getSetting({
+        success: (result) => {
+          const scopeAddress = result.authSetting['scope.address'];
+          if (scopeAddress === true || scopeAddress === undefined) {
+            wx.chooseAddress({
+              success: (result1) => {
+                this.setData({
+                  address: result1
+                })
+                wx.setStorageSync('address', this.data.address)
+              }
+            })
+          } else {
+            wx.openSetting({
+              success: (result2) => {
+                wx.chooseAddress({
+                  success: (result3) => {
+                    this.setData({
+                      address: result3
+                    })
+                    wx.setStorageSync('address', this.data.address)
+                  }
+                })
+              }
+            })
+          }
         }
-      }
-    })
+      })
+    }
   },
 
   changeItemChk(e) {
@@ -135,7 +142,6 @@ Page({
     } = this.data;
     if (address.userName) {
       if (totalNum > 0) {
-        console.log(1);
         wx.navigateTo({
           url: '/pages/pay/index'
         });

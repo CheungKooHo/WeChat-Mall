@@ -103,6 +103,14 @@
 					"id": -1,
 					"name": "登陆页面",
 					"pathName": "pages/login/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/order/index",
+					"query": "type=1",
 					"scene": null
 				}
 			]

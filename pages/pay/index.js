@@ -35,10 +35,18 @@ Page({
     let newCart = wx.getStorageSync('cart');
     newCart = newCart.filter(v => !v.checked);
     wx.setStorageSync('cart', newCart);
-
-    wx.navigateTo({
-      url: '/pages/order/index'
+    wx.showModal({
+      title: '由于小程序权限限制，只能企业账号成功调用支付api，所以此处仅模拟支付完毕，购物车随之更新',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#000000',
+      confirmText: '确定',
+      confirmColor: '#3CC51F',
+      complete: () => {
+        wx.navigateBack({
+          delta: 1
+        });
+      }
     });
-
   }
 })

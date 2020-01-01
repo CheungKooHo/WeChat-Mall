@@ -1,0 +1,134 @@
+/* pages/user/index.wxss */
+page {
+  background-color: #edece8;
+}
+
+.user_info_wrap {
+  height: 45vh;
+  overflow: hidden;
+  background-color: var(--themeColor);
+  position: relative;
+
+  .user_img_wrap {
+    position: relative;
+
+    .user_bg {
+      height: 45vh;
+      filter: blur(10rpx);
+    }
+
+    .user_info {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 20%;
+      text-align: center;
+
+      .user_icon {
+        width: 150rpx;
+        height: 150rpx;
+        border-radius: 50%;
+      }
+
+      .user_name {
+        color: #fff;
+        margin-top: 40rpx;
+        font-size: 40rpx;
+      }
+    }
+  }
+
+  .login_btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25%;
+    color: greenyellow;
+    padding: 30rpx;
+    border: 5rpx solid greenyellow;
+    border-radius: 30rpx;
+  }
+}
+
+.user_content {
+  position: relative;
+
+  .user_main {
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -40rpx;
+
+    .history_wrap {
+      background-color: #fff;
+      display: flex;
+
+      navigator {
+        flex: 1;
+        text-align: center;
+        padding: 10rpx 0;
+
+        .his_num {
+          color: var(--themeColor);
+        }
+
+        .his_name {}
+      }
+    }
+
+    .orders_wrap {
+      margin-top: 15rpx;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+
+      .orders_title {
+        padding: 20rpx;
+        font-size: 28rpx;
+        border-bottom: 1rpx solid #ccc;
+      }
+
+      .orders_content {
+        padding: 10rpx 0;
+        display: flex;
+
+        navigator {
+          flex: 1;
+          text-align: center;
+
+          .iconfont {
+            color: var(--themeColor);
+          }
+
+          .order_name {}
+        }
+      }
+    }
+
+    .address_wrap {
+      margin-top: 15rpx;
+      background-color: #fff;
+      padding: 20rpx;
+      font-size: 28rpx;
+    }
+
+    .app_info_wrap {
+      margin-top: 15rpx;
+      background-color: #fff;
+
+      .app_info_item {
+        padding: 20rpx;
+        font-size: 28rpx;
+        border-bottom: 1rpx solid #ccc;
+      }
+    }
+
+    .recommend_wrap {
+      margin-top: 15rpx;
+      background-color: #fff;
+      padding: 20rpx;
+      font-size: 28rpx;
+    }
+  }
+}

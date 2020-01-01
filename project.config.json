@@ -75,14 +75,34 @@
 					"id": 2,
 					"name": "详情",
 					"pathName": "pages/goods_detail/index",
-					"query": "goods_id=13110",
+					"query": "goods_id=13111",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "购物车",
+					"pathName": "pages/cart/index",
+					"query": "goods_id=13111",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "购物车",
-					"pathName": "pages/cart/index",
-					"query": "goods_id=13110",
+					"name": "pa'ypay",
+					"pathName": "pages/pay/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/user/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登陆页面",
+					"pathName": "pages/login/index",
 					"scene": null
 				}
 			]
